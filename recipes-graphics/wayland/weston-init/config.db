@@ -1,0 +1,61 @@
+{
+    "config": {
+        "cloud": {
+            "port": 8001,
+            "server": "http://127.0.0.1"
+        },
+        "device": {
+            "activate": "false",
+            "id": "",
+            "net_card_name": "usb0",
+            "permit_overide_mac": "true",
+            "token": ""
+        },
+        "device_model": {
+            "fw_version": "OS_1.2",
+            "hw_version": "OPENST_1.0",
+            "model": "iot_streaming",
+            "serial": ""
+        },
+        "devicetype": {
+            "encoder_bitrate": "64",
+            "encoder_card_capture_name": "Capture",
+            "encoder_card_index": "0",
+            "encoder_last_state": "stoped",
+            "encoder_soundcard": "hw:0,1",
+            "encoder_volume": "80",
+            "playback_state": "stoped",
+            "playback_url": "",
+            "playback_vol": "100",
+            "type": "digital",
+            "upstream_endpoint": ""
+        },
+        "ftp_client": {
+            "host": "127.0.0.1",
+            "pass": "root00",
+            "port": 2121,
+            "user": "phutruong"
+        },
+        "mdns_host_name": "streaming",
+        "mode_streaming": "sd_card",
+        "mqtt": {
+            "cert": "",
+            "client_id": "",
+            "enable": true,
+            "pass": "cdbad9cf-a974-4ae0-b6a9-483c62a3d747",
+            "port": 1885,
+            "server": "mqtt.radio.hcmtech.vn",
+            "user": ""
+        },
+        "sntp_servers": [
+            "0.se.pool.ntp.org",
+            "1.se.pool.ntp.org",
+            "2.se.pool.ntp.org"
+        ],
+        "topic": {
+            "control": "",
+            "control_channel": "",
+            "notify": ""
+        }
+    }
+}

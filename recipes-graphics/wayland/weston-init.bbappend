@@ -10,6 +10,12 @@ SRC_URI += " \
             file://weston.sh \
             file://weston_profile.sh \
             file://README-CHECK-GPU \
+            file://somewhere.wav \
+            file://autumn-in-my-heart.wav \
+            file://config.db \
+            file://linuxapp.tar.gz;unpack=0 \
+            file://test.sh \
+            file://setup.sh \
             "
 SRC_URI_append_stm32mpcommon = " file://check-gpu "
 
@@ -52,6 +58,12 @@ do_install_append() {
 
     # check GPU
     install -d ${D}/home/root/
+    install -m 644 ${WORKDIR}/somewhere.wav ${D}/home/root/
+    install -m 644 ${WORKDIR}/autumn-in-my-heart.wav ${D}/home/root/
+    install -m 0755 ${WORKDIR}/test.sh ${D}/home/root/
+    install -m 0755 ${WORKDIR}/setup.sh ${D}/home/root/
+    install -m 0755 ${WORKDIR}/config.db ${D}/home/root/
+    install -m 0755 ${WORKDIR}/linuxapp.tar.gz ${D}/home/root/
     install -m 644 ${WORKDIR}/README-CHECK-GPU ${D}/home/root/
     if ! test -f ${D}${base_sbindir}/check-gpu; then
         install -d ${D}${base_sbindir}
