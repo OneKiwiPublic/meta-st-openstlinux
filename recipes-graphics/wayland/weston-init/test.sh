@@ -6,8 +6,13 @@ if [ -f "setup.sh" ]; then
     rm setup.sh
 fi
 
+
 echo "1. test led:"
 ls /sys/class/leds
+echo 0 > /sys/class/leds/led-r/brightness
+echo 0 > /sys/class/leds/led-g/brightness
+echo 0 > /sys/class/leds/led-b/brightness
+sleep 1
 
 echo "2. test uart:"
 ls /dev/tty*
@@ -24,6 +29,8 @@ cat /proc/partitions | grep mmcblk0
 echo "6. test audio:"
 #aplay -D plughw:CARD=STM32MP15DK /home/root/somewhere.wav
 #amixer -q -D pulse sset Master 30%; aplay /home/root/somewhere.wav &
+echo 0 > /sys/class/leds/audio-s0/brightness
+echo 1 > /sys/class/leds/audio-s1/brightness
 R=$(($$%2))
 echo $R
 M=0
@@ -38,5 +45,8 @@ echo "7. test 4G:"
 
 echo "8. test ethernet:"
 ifconfig
+
+echo 0 > /sys/class/leds/audio-s0/brightness
+echo 0 > /sys/class/leds/audio-s1/brightness
 
 echo "9. test done!"
