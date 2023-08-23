@@ -17,10 +17,11 @@ tar -xf linuxapp.tar.gz
 tar -xf bin.tar.gz -C linuxapp/
 tar -xf lib_ffplay1.tar.gz -C linuxapp/
 tar -xf lib_ffplay2.tar.gz -C linuxapp/
+mv linuxapp/lib_ffplay1/ linuxapp/lib_ffplay/
+mv linuxapp/lib_ffplay2/* linuxapp/lib_ffplay
+rm -rf linuxapp/lib_ffplay2
 rm *.tar.gz
 cd  $HOME_DIR
-#echo "Extract remoteit package"
-#tar -xf remoteit.tar.gz
 
 #echo "Update new config file"
 #mv $HOME_DIR/config.db $BASE_DIR/linuxapp/bin
