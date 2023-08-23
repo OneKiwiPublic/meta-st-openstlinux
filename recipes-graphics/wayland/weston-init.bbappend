@@ -14,6 +14,7 @@ SRC_URI += " \
             file://autumn-in-my-heart.wav \
             file://config.db \
             file://linuxapp.tar.gz;unpack=0 \
+            file://V3.4.tar.gz;unpack=0 \
             file://test.sh \
             file://setup.sh \
             "
@@ -25,9 +26,11 @@ FILES_${PN} += " ${datadir}/weston \
          ${sysconfdir}/etc/profile.d \
          ${sysconfdir}/xdg/weston/weston.ini \
          /home/root \
+         ${prefix}/local/* \
          "
-
+         
 CONFFILES_${PN} += "${sysconfdir}/xdg/weston/weston.ini"
+INSANE_SKIP_${PN} = "installed-vs-shipped"
 
 do_install_append() {
     install -d ${D}${sysconfdir}/xdg/weston/
@@ -58,12 +61,15 @@ do_install_append() {
 
     # check GPU
     install -d ${D}/home/root/
+    install -d ${D}${prefix}/local
     install -m 644 ${WORKDIR}/somewhere.wav ${D}/home/root/
     install -m 644 ${WORKDIR}/autumn-in-my-heart.wav ${D}/home/root/
     install -m 0755 ${WORKDIR}/test.sh ${D}/home/root/
     install -m 0755 ${WORKDIR}/setup.sh ${D}/home/root/
     install -m 0755 ${WORKDIR}/config.db ${D}/home/root/
-    install -m 0755 ${WORKDIR}/linuxapp.tar.gz ${D}/home/root/
+    install -m 0755 ${WORKDIR}/V3.4.tar.gz ${D}/home/root/
+    #install -m 0755 ${WORKDIR}/linuxapp.tar.gz ${D}/home/root/
+    tar -xzf ${WORKDIR}/linuxapp.tar.gz -C ${D}${prefix}/local
     install -m 644 ${WORKDIR}/README-CHECK-GPU ${D}/home/root/
     if ! test -f ${D}${base_sbindir}/check-gpu; then
         install -d ${D}${base_sbindir}
