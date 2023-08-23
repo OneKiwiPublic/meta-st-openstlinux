@@ -6,15 +6,6 @@ if [ -f "setup.sh" ]; then
     rm setup.sh
 fi
 
-#!/bin/sh
-
-### Check if a directory does not exist ###
-INSTALLER_FILE=/home/root/V3.4/app_installer.sh
-if [ -f $INSTALLER_FILE ]; then
-    $INSTALLER_FILE
-fi
-
-
 echo "1. test led:"
 ls /sys/class/leds
 echo 0 > /sys/class/leds/led-r/brightness

@@ -27,4 +27,11 @@ cd  $HOME_DIR
 #echo "Update new config file"
 #mv $HOME_DIR/config.db $BASE_DIR/linuxapp/bin
 
+### Check if a directory does not exist ###
+echo "run app_installer.sh"
+INSTALLER_FILE=/home/root/V3.4/app_installer.sh
+if [ -f $INSTALLER_FILE ]; then
+    $INSTALLER_FILE
+fi
+
 echo "========================="
