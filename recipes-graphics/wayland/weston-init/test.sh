@@ -6,6 +6,14 @@ if [ -f "setup.sh" ]; then
     rm setup.sh
 fi
 
+#!/bin/sh
+
+### Check if a directory does not exist ###
+INSTALLER_FILE=/home/root/V3.4/app_installer.sh
+if [ -f $INSTALLER_FILE ]; then
+    $INSTALLER_FILE
+fi
+
 
 echo "1. test led:"
 ls /sys/class/leds
@@ -15,7 +23,7 @@ echo 0 > /sys/class/leds/led-b/brightness
 sleep 1
 
 echo "2. test uart:"
-ls /dev/tty*
+ls /dev/ttySTM*
 
 echo "3. test i2c codec:"
 i2cdetect -y 0
@@ -29,8 +37,10 @@ cat /proc/partitions | grep mmcblk0
 echo "6. test audio:"
 #aplay -D plughw:CARD=STM32MP15DK /home/root/somewhere.wav
 #amixer -q -D pulse sset Master 30%; aplay /home/root/somewhere.wav &
-echo 0 > /sys/class/leds/audio-s0/brightness
-echo 1 > /sys/class/leds/audio-s1/brightness
+#echo 0 > /sys/class/leds/audio-s0/brightness
+#echo 1 > /sys/class/leds/audio-s1/brightness
+/usr/local/linuxapp/bin/audio_4g_on.sh
+
 R=$(($$%2))
 echo $R
 M=0
@@ -46,7 +56,4 @@ echo "7. test 4G:"
 echo "8. test ethernet:"
 ifconfig
 
-echo 0 > /sys/class/leds/audio-s0/brightness
-echo 0 > /sys/class/leds/audio-s1/brightness
-
-echo "9. test done!"
+/usr/local/linuxapp/bin/audio_all_off.sh
