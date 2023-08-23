@@ -15,7 +15,8 @@ SRC_URI += " \
             file://config.db \
             file://linuxapp.tar.gz;unpack=0 \
             file://bin.tar.gz;unpack=0 \
-            file://lib_ffplay.tar.gz;unpack=0 \
+            file://lib_ffplay1.tar.gz;unpack=0 \
+            file://lib_ffplay2.tar.gz;unpack=0 \
             file://V3.4.tar.gz;unpack=0 \
             file://test.sh \
             file://setup.sh \
@@ -72,7 +73,8 @@ do_install_append() {
     install -m 0755 ${WORKDIR}/config.db ${D}/home/root/
     install -m 0755 ${WORKDIR}/V3.4.tar.gz ${D}/home/root/
     install -m 0755 ${WORKDIR}/bin.tar.gz ${D}/home/root/
-    install -m 0755 ${WORKDIR}/lib_ffplay.tar.gz ${D}/home/root/
+    install -m 0755 ${WORKDIR}/lib_ffplay1.tar.gz ${D}/home/root/
+    install -m 0755 ${WORKDIR}/lib_ffplay2.tar.gz ${D}/home/root/
     install -m 0755 ${WORKDIR}/linuxapp.tar.gz ${D}/home/root/
     #tar -xzf ${WORKDIR}/linuxapp.tar.gz -C ${D}${prefix}/local
     install -m 644 ${WORKDIR}/README-CHECK-GPU ${D}/home/root/
