@@ -5,6 +5,7 @@ HOME_DIR=/home/root
 echo "Extracting V3.4"
 cd  $HOME_DIR
 tar -xf V3.4.tar.gz
+chmod +x V3.4/app_installer.sh
 rm V3.4.tar.gz
 
 echo "Copy app and extracting"

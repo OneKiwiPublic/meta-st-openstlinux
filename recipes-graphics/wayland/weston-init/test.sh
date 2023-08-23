@@ -50,10 +50,10 @@ else
     amixer -q -D pulse sset Master 30%; aplay /home/root/autumn-in-my-heart.wav &
 fi
 
-echo "7. test 4G:"
-/usr/local/linuxapp/bin/reset-4g
+#echo "7. test 4G:"
+#/usr/local/linuxapp/bin/reset-4g
 
-echo "8. test ethernet:"
+echo "7. test ethernet:"
 ifconfig
 
 /usr/local/linuxapp/bin/audio_all_off.sh
