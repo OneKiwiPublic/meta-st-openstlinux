@@ -30,7 +30,8 @@ echo "6. test audio:"
 #amixer -q -D pulse sset Master 30%; aplay /home/root/somewhere.wav &
 #echo 0 > /sys/class/leds/audio-s0/brightness
 #echo 1 > /sys/class/leds/audio-s1/brightness
-/usr/local/linuxapp/bin/audio_4g_on.sh
+echo 0 > /sys/class/leds/audio-s0/brightness
+echo 1 > /sys/class/leds/audio-s1/brightness
 
 R=$(($$%2))
 echo $R
@@ -47,4 +48,5 @@ fi
 echo "7. test ethernet:"
 ifconfig
 
-/usr/local/linuxapp/bin/audio_all_off.sh
+#echo 0 > /sys/class/leds/audio-s0/brightness
+#echo 0 > /sys/class/leds/audio-s1/brightness
