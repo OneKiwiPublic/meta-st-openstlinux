@@ -16,11 +16,12 @@ cd  $BASE_DIR
 tar -xf linuxapp.tar.gz
 tar -xf bin.tar.gz -C linuxapp/
 tar -xf lib_ffplay.tar.gz -C linuxapp/
-
+rm *.tar.gz
+cd  $HOME_DIR
 #echo "Extract remoteit package"
 #tar -xf remoteit.tar.gz
 
-echo "Update new config file"
-mv $HOME_DIR/config.db $BASE_DIR/linuxapp/bin
+#echo "Update new config file"
+#mv $HOME_DIR/config.db $BASE_DIR/linuxapp/bin
 
 echo "========================="
